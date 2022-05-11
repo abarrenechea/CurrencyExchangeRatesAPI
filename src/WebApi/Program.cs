@@ -4,6 +4,7 @@ using ApplicationCore.Models;
 using ApplicationCore.Services;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using WebApi;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +28,13 @@ builder.Services.AddScoped<IQueryService<string, CurrencyRate>, GetCurrencyExcha
 // Add In Memory DB
 builder.Services.AddDbContext<CurrencyExchangeContext>(opt => opt.UseInMemoryDatabase("ExchangeCurrencyDb"));
 builder.Services.AddScoped<CurrencyExchangeContext>();
+
+builder.Services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo()
+{
+    Title = "Currency Exchange Rates API",
+    Description = "This API provides currency exchange rates for the following currencies " +
+        "British Pound (GBP), Euro (EUR) United States Dollar (USD), and Peruvian Sol (PEN)."
+}));
 
 var app = builder.Build();
 
