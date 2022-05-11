@@ -14,10 +14,12 @@ Some things that you will find in this sample are
  - ApplicationCore uses Command and Query services. Each use case is implemented in one file.
  - Validations and custom exceptions in the ApplicationCore layer
  - Global exception handling and custom http response codes and messages
+ - API documentation using Swagger
  - Functional Tests
  - Unit Tests
 
 Features
+
 i. Features Implemented
  - Lists the currency exchange rates for a currency (GBP, EUR, USD, PEN).
  - Adds new currency exchange rate
@@ -28,6 +30,7 @@ ii. Nice to have
  - Integration Tests, were left aside because I didn't see much value on them since I am using In Memory DB
    and I already have some Function Tests in place.
  - Security
+ - A pipeline for deployment
 
 
 
